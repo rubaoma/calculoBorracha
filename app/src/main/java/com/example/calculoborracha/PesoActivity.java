@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ public class PesoActivity extends AppCompatActivity {
     private TextInputEditText textComprimentoBorracha;
     private Button botaoCalcular;
     private TextView textResultado;
-
+    private CheckBox checkCapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class PesoActivity extends AppCompatActivity {
         textDiametroBorracha = findViewById(R.id.textDiametroBorracha);
         textComprimentoBorracha = findViewById(R.id.textComprimentoBorracha);
         textResultado = findViewById(R.id.textViewResultado);
-
+        checkCapa = findViewById(R.id.checkBoxCapa);
 
     }
 
@@ -52,10 +53,16 @@ public class PesoActivity extends AppCompatActivity {
             Double valorDiamBorracha = Double.parseDouble(diamBorracha);
             Double valorCompBorracha = Double.parseDouble(compBorracha);
 
-            Double calculo = ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * 2)) * 0.0785) * 0.015) * valorCompBorracha);
-            String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            if(checkCapa.isChecked()){
+                int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
+                String resultadoCalculo = String.valueOf( calculo );
+                textResultado.setText(resultadoCalculo);
+            }else {
 
+                int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
+                String resultadoCalculo = String.valueOf(calculo);
+                textResultado.setText(resultadoCalculo);
+            }
         } else {
             Toast.makeText(
                     getApplicationContext(),
