@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,10 @@ public class PesoActivity extends AppCompatActivity {
     private Button botaoCalcular;
     private TextView textResultado;
     private CheckBox checkCapa;
+    private RadioButton radioButtonNitrilica;
+    private RadioButton radioButtonEpdm;
+    private RadioButton radioButtonX300;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,10 @@ public class PesoActivity extends AppCompatActivity {
         textComprimentoBorracha = findViewById(R.id.textComprimentoBorracha);
         textResultado = findViewById(R.id.textViewResultado);
         checkCapa = findViewById(R.id.checkBoxCapa);
+        radioButtonNitrilica = findViewById(R.id.radioButtonNitrilica);
+        radioButtonEpdm = findViewById(R.id.radioButtonEpdm);
+        radioButtonX300 = findViewById(R.id.radioButtonX300);
+
 
     }
 
@@ -53,15 +62,42 @@ public class PesoActivity extends AppCompatActivity {
             Double valorDiamBorracha = Double.parseDouble(diamBorracha);
             Double valorCompBorracha = Double.parseDouble(compBorracha);
 
-            if(checkCapa.isChecked()){
-                int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
-                String resultadoCalculo = String.valueOf( calculo );
-                textResultado.setText(resultadoCalculo);
-            }else {
+            if (radioButtonNitrilica.isChecked()) {
 
-                int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
-                String resultadoCalculo = String.valueOf(calculo);
-                textResultado.setText(resultadoCalculo);
+                if (checkCapa.isChecked()) {
+                    int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
+                    String resultadoCalculo = String.valueOf(calculo);
+                    textResultado.setText(resultadoCalculo);
+                } else {
+
+                    int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
+                    String resultadoCalculo = String.valueOf(calculo);
+                    textResultado.setText(resultadoCalculo);
+                }
+            } if (radioButtonEpdm.isChecked()) {
+
+                if (checkCapa.isChecked()) {
+                    int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.015) * valorCompBorracha);
+                    String resultadoCalculo = String.valueOf(calculo);
+                    textResultado.setText(resultadoCalculo);
+                } else {
+
+                    int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.015) * valorCompBorracha);
+                    String resultadoCalculo = String.valueOf(calculo);
+                    textResultado.setText(resultadoCalculo);
+                }
+            } if (radioButtonX300.isChecked()) {
+
+                if (checkCapa.isChecked()) {
+                    int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.017) * valorCompBorracha);
+                    String resultadoCalculo = String.valueOf(calculo);
+                    textResultado.setText(resultadoCalculo);
+                } else {
+
+                    int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.017) * valorCompBorracha);
+                    String resultadoCalculo = String.valueOf(calculo);
+                    textResultado.setText(resultadoCalculo);
+                }
             }
         } else {
             Toast.makeText(
