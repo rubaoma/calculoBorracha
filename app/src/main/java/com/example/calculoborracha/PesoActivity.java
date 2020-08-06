@@ -64,40 +64,16 @@ public class PesoActivity extends AppCompatActivity {
 
             if (radioButtonNitrilica.isChecked()) {
 
-                if (checkCapa.isChecked()) {
-                    int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
-                    String resultadoCalculo = String.valueOf(calculo);
-                    textResultado.setText(resultadoCalculo);
-                } else {
+                calculoNitrilica(valorDiamFerro, valorDiamBorracha, valorCompBorracha);
+            }
+            if (radioButtonEpdm.isChecked()) {
 
-                    int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.012) * valorCompBorracha);
-                    String resultadoCalculo = String.valueOf(calculo);
-                    textResultado.setText(resultadoCalculo);
-                }
-            } if (radioButtonEpdm.isChecked()) {
+                calculoEPDM(valorDiamFerro, valorDiamBorracha, valorCompBorracha);
+            }
 
-                if (checkCapa.isChecked()) {
-                    int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.015) * valorCompBorracha);
-                    String resultadoCalculo = String.valueOf(calculo);
-                    textResultado.setText(resultadoCalculo);
-                } else {
-
-                    int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.015) * valorCompBorracha);
-                    String resultadoCalculo = String.valueOf(calculo);
-                    textResultado.setText(resultadoCalculo);
-                }
-            } if (radioButtonX300.isChecked()) {
-
-                if (checkCapa.isChecked()) {
-                    int calculo = (int) (((((valorDiamBorracha * valorDiamBorracha) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.017) * valorCompBorracha);
-                    String resultadoCalculo = String.valueOf(calculo);
-                    textResultado.setText(resultadoCalculo);
-                } else {
-
-                    int calculo = (int) ((((((valorDiamBorracha + 15) * (valorDiamBorracha + 15)) - (valorDiamFerro * valorDiamFerro)) * 0.0785) * 0.017) * valorCompBorracha);
-                    String resultadoCalculo = String.valueOf(calculo);
-                    textResultado.setText(resultadoCalculo);
-                }
+            if (radioButtonX300.isChecked()) {
+                calculoX300(valorDiamFerro, valorDiamBorracha, valorCompBorracha);
+//
             }
         } else {
             Toast.makeText(
@@ -122,4 +98,65 @@ public class PesoActivity extends AppCompatActivity {
 
         return camposValidados;
     }
+
+    public void calculoNitrilica(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha) {
+        Double _diametroFerro = diametroFerro;
+        Double _diametroBorracha = diametroBorracha;
+        Double _comprimentoBorracha = comprimentoBorracha;
+
+        if (_diametroBorracha < 135) {
+            if (checkCapa.isChecked()) {
+
+                int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
+                String resultadoCalculo = String.valueOf(calculo);
+                textResultado.setText(resultadoCalculo);
+            } else {
+
+                int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
+                String resultadoCalculo = String.valueOf(calculo);
+                textResultado.setText(resultadoCalculo);
+            }
+        } else {
+            // Diametro da Borracha nitrilica acima de 135 o peso teórico praticamente se iguala ao de uma borracha EDPM
+            calculoEPDM(_diametroFerro, _diametroBorracha, _comprimentoBorracha);
+        }
+    }
+
+    public void calculoEPDM(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha) {
+        Double _diametroFerro = diametroFerro;
+        Double _diametroBorracha = diametroBorracha;
+        Double _comprimentoBorracha = comprimentoBorracha;
+
+        if (checkCapa.isChecked()) {
+
+            int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
+            String resultadoCalculo = String.valueOf(calculo);
+            textResultado.setText(resultadoCalculo);
+        } else {
+
+            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
+            String resultadoCalculo = String.valueOf(calculo);
+            textResultado.setText(resultadoCalculo);
+        }
+    }
+
+
+    public void calculoX300(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha) {
+        Double _diametroFerro = diametroFerro;
+        Double _diametroBorracha = diametroBorracha;
+        Double _comprimentoBorracha = comprimentoBorracha;
+
+        if (checkCapa.isChecked()) {
+            int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
+            String resultadoCalculo = String.valueOf(calculo);
+            textResultado.setText(resultadoCalculo);
+        } else {
+
+            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
+            String resultadoCalculo = String.valueOf(calculo);
+            textResultado.setText(resultadoCalculo);
+        }
+    }
+
+
 }
