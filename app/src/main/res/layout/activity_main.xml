@@ -40,6 +40,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:onClick="chamarTelaCalculoValor"
         android:text="@string/calcular_valor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
