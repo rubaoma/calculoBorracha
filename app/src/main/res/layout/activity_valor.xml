@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputDiametroFerro"
+                android:id="@+id/textInputVlDiametroFerro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Diâmetro do Ferro:"
@@ -58,7 +58,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputDiametroBorracha"
+                android:id="@+id/textInputVlDiametroBorracha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Diâmetro da Borracha:"
@@ -77,7 +77,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputComprimentoBorracha"
+                android:id="@+id/textInputVlComprimentoBorracha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Comprimento da borracha:"
@@ -110,19 +110,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5">
 
             <RadioButton
-                android:id="@+id/radioButtonNitrilica"
+                android:id="@+id/radioButtonVlNitrilica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nitrílica" />
 
             <RadioButton
-                android:id="@+id/radioButtonPrecoEPDM"
+                android:id="@+id/radioButtonVlPrecoEPDM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="EPDM, Silicone, Neoprene" />
 
             <RadioButton
-                android:id="@+id/radioButtonPrecoX300"
+                android:id="@+id/radioButtonVlPrecoX300"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="x-300" />
@@ -196,7 +196,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
 
         <TextView
-            android:id="@+id/textViewResultadoPreco"
+            android:id="@+id/textViewVlResultadoPreco"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -210,7 +210,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
 
         <Button
-            android:id="@+id/buttonCalularPreco"
+            android:id="@+id/buttonVlCalularPreco"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -219,10 +219,10 @@
             android:text="Calcular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewResultadoPreco" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewVlResultadoPreco" />
 
         <Button
-            android:id="@+id/buttonTelaInicial"
+            android:id="@+id/buttonVlTelaInicial"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -235,7 +235,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonCalularPreco" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonVlCalularPreco" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

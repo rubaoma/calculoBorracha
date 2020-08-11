@@ -2,7 +2,6 @@ package com.example.calculoborracha;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,7 +37,7 @@ public class PesoActivity extends AppCompatActivity {
         textComprimentoBorracha = findViewById(R.id.textComprimentoBorracha);
         textResultado = findViewById(R.id.textViewResultado);
         checkCapa = findViewById(R.id.checkBoxCapa);
-        radioButtonNitrilica = findViewById(R.id.radioButtonNitrilica);
+        radioButtonNitrilica = findViewById(R.id.radioButtonVlNitrilica);
         radioButtonEpdm = findViewById(R.id.radioButtonEpdm);
         radioButtonX300 = findViewById(R.id.radioButtonX300);
 
