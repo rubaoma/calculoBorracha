@@ -19,7 +19,7 @@ public class ValorActivity extends AppCompatActivity {
     private TextInputEditText textDiametroBorracha;
     private TextInputEditText textComprimentoBorracha;
     private TextInputEditText textPrecoQuilo;
-    private Button botaoCalcular;
+    //private Button botaoCalcular;
     private TextView textResultado;
     private CheckBox checkCanal;
     private CheckBox checkRetifica;
@@ -51,19 +51,19 @@ public class ValorActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void calcularPesoBorracha(View view) {
+    public void calcularPrecoBorracha(View view) {
 
         String diamFerro = textDiametroFerro.getText().toString();
         String diamBorracha = textDiametroBorracha.getText().toString();
         String compBorracha = textComprimentoBorracha.getText().toString();
         String precoQuilo = textPrecoQuilo.getText().toString();
-        Boolean camposValidados = validarCampos(diamFerro, diamBorracha, compBorracha);
+        Boolean camposValidados = validarCampos(diamFerro, diamBorracha, compBorracha, precoQuilo);
 
         if (camposValidados) {
             Double valorDiamFerro = Double.parseDouble(diamFerro);
             Double valorDiamBorracha = Double.parseDouble(diamBorracha);
             Double valorCompBorracha = Double.parseDouble(compBorracha);
-            Double valorPrecoQuilo = Double.parseDouble(precoQuilo);
+            Integer valorPrecoQuilo = Integer.parseInt(precoQuilo);
 
             if (radioButtonNitrilica.isChecked()) {
 
@@ -105,23 +105,24 @@ public class ValorActivity extends AppCompatActivity {
         return camposValidados;
     }
 
-    public void calculoNitrilica(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha, Double valorborracha) {
+    public void calculoNitrilica(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha, int valorBorracha) {
         Double _diametroFerro = diametroFerro;
         Double _diametroBorracha = diametroBorracha;
         Double _comprimentoBorracha = comprimentoBorracha;
-        Double _valorBorracha = valorborracha;
+        int _valorBorracha = valorBorracha;
 
         if (_diametroBorracha < 135) {
             if (checkCanal.isChecked()) {
-
-                int calculo = (int) (((((_diametroBorracha + 15 * _diametroBorracha + 15) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
-                int calculoTotal = (int) ((calculo * 0.30) + calculo);
+                //adiciona 30% a mais no valor principal
+                int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha) * _valorBorracha;
+                Double calculoTotal = (calculo * 0.30) + calculo;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
             } else {
 
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
-                String resultadoCalculo = String.valueOf(calculo);
+                int calculoTotal = (int) (calculo * _valorBorracha);
+                String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
             }
         } else {

@@ -18,7 +18,7 @@ public class PesoActivity extends AppCompatActivity {
     private TextInputEditText textDiametroFerro;
     private TextInputEditText textDiametroBorracha;
     private TextInputEditText textComprimentoBorracha;
-    private Button botaoCalcular;
+    //private Button botaoCalcular;
     private TextView textResultado;
     private CheckBox checkCapa;
     private RadioButton radioButtonNitrilica;
