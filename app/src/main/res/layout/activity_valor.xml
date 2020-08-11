@@ -42,7 +42,8 @@
                 android:id="@+id/textInputDiametroFerro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Diâmetro do Ferro:" />
+                android:hint="Diâmetro do Ferro:"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +61,8 @@
                 android:id="@+id/textInputDiametroBorracha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Diâmetro da Borracha:" />
+                android:hint="Diâmetro da Borracha:"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -78,7 +80,8 @@
                 android:id="@+id/textInputComprimentoBorracha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Comprimento da borracha:" />
+                android:hint="Comprimento da borracha:"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -177,7 +180,8 @@
                 android:id="@+id/textInputPrecoQuilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Preço do Quilo:" />
+                android:hint="Preço do Quilo:"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
