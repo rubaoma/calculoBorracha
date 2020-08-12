@@ -195,6 +195,20 @@ public class ValorActivity extends AppCompatActivity {
         }
     }
 
+    public void limparCampos(View view){
+        textDiametroFerro.setText("");
+        textDiametroBorracha.setText("");
+        textComprimentoBorracha.setText("");
+        textPrecoQuilo.setText("");
+        textResultado.setText("0,00");
+        radioRetifica.setChecked(false);
+        radioCanal.setChecked(false);
+        radioButtonNitrilica.setChecked(false);
+        radioButtonEpdm.setChecked(false);
+        radioButtonX300.setChecked(false);
+
+
+    }
 
 
 }
