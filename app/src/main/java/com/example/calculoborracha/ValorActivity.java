@@ -111,17 +111,23 @@ public class ValorActivity extends AppCompatActivity {
         Double _comprimentoBorracha = comprimentoBorracha;
         int _valorBorracha = valorBorracha;
 
-        if (_diametroBorracha < 135) {
+        if(checkCanal.isChecked() && checkRetifica.isChecked()){
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Selecione apenas Canais ou Retifica!!!",
+                    Toast.LENGTH_LONG
+            ).show();
+        }else if (_diametroBorracha < 135) {
             if (checkCanal.isChecked()) {
                 //adiciona 30% a mais no valor principal
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha) * _valorBorracha;
-                Double calculoTotal = (calculo * 0.30) + calculo;
+                Double calculoTotal = ((calculo * 0.30) + calculo)/10;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
             } else {
 
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
-                int calculoTotal = (int) (calculo * _valorBorracha);
+                int calculoTotal = (int) (calculo * _valorBorracha)/10;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
             }
