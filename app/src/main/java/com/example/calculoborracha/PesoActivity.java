@@ -156,6 +156,17 @@ public class PesoActivity extends AppCompatActivity {
             textResultado.setText(resultadoCalculo);
         }
     }
+    public void limparCampos(View view){
+        textDiametroFerro.setText("");
+        textDiametroBorracha.setText("");
+        textComprimentoBorracha.setText("");
+        textResultado.setText("0,00");
+        checkCapa.setChecked(false);
+        radioButtonNitrilica.setChecked(false);
+        radioButtonEpdm.setChecked(false);
+        radioButtonX300.setChecked(false);
 
+
+    }
 
 }
