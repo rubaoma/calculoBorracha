@@ -75,7 +75,7 @@ public class ValorActivity extends AppCompatActivity {
             }
 
             if (radioButtonX300.isChecked()) {
-                calculoX300(valorDiamFerro, valorDiamBorracha, valorCompBorracha);
+                calculoX300(valorDiamFerro, valorDiamBorracha, valorCompBorracha, valorPrecoQuilo);
 //
             }
         } else {
@@ -118,7 +118,14 @@ public class ValorActivity extends AppCompatActivity {
                 Double calculoTotal = ((calculo * 0.30) + calculo)/10;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
-            } else {
+
+            }else if (radioRetifica.isChecked()){
+                //retifica equivale a 30% do valor total de um revestimento
+                int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha) * _valorBorracha;
+                Double calculoTotal = (calculo * 0.30)/10;
+                String resultadoCalculo = String.valueOf(calculoTotal);
+                textResultado.setText(resultadoCalculo);
+            }else {
 
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
                 int calculoTotal = (int) (calculo * _valorBorracha)/10;
@@ -143,6 +150,14 @@ public class ValorActivity extends AppCompatActivity {
             Double calculoTotal = ((calculo * 0.30) + calculo)/10;
             String resultadoCalculo = String.valueOf(calculoTotal);
             textResultado.setText(resultadoCalculo);
+
+        }else if (radioRetifica.isChecked()) {
+            //retifica equivale a 30% do valor total de um revestimento
+            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha) * _valorBorracha;
+            Double calculoTotal = (calculo * 0.30) / 10;
+            String resultadoCalculo = String.valueOf(calculoTotal);
+            textResultado.setText(resultadoCalculo);
+
         } else {
 
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
@@ -152,15 +167,26 @@ public class ValorActivity extends AppCompatActivity {
     }
 
 
-    public void calculoX300(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha) {
+    public void calculoX300(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha, int valorBorracha) {
         Double _diametroFerro = diametroFerro;
         Double _diametroBorracha = diametroBorracha;
         Double _comprimentoBorracha = comprimentoBorracha;
+        int _valorBorracha = valorBorracha;
 
         if (radioCanal.isChecked()) {
-            int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
-            String resultadoCalculo = String.valueOf(calculo);
+
+            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha) * _valorBorracha;
+            Double calculoTotal = ((calculo * 0.30) + calculo)/10;
+            String resultadoCalculo = String.valueOf(calculoTotal);
             textResultado.setText(resultadoCalculo);
+
+        }else if (radioRetifica.isChecked()) {
+            //retifica equivale a 30% do valor total de um revestimento
+            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha) * _valorBorracha;
+            Double calculoTotal = (calculo * 0.30) / 10;
+            String resultadoCalculo = String.valueOf(calculoTotal);
+            textResultado.setText(resultadoCalculo);
+
         } else {
 
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
