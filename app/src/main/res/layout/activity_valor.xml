@@ -141,29 +141,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
 
-        <CheckBox
-            android:id="@+id/checkBoxCanais"
+        <RadioGroup
+            android:id="@+id/radioGroup2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:text="Canais"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
 
-        <CheckBox
-            android:id="@+id/checkBoxRetifica"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:text="Retifica"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxCanais" />
+            <RadioButton
+                android:id="@+id/radioButtonCanais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Canais" />
+
+            <RadioButton
+                android:id="@+id/radioButtonRetifica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retifica" />
+        </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout12"
@@ -174,7 +174,7 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxRetifica">
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputPrecoQuilo"

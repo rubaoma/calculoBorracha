@@ -21,8 +21,8 @@ public class ValorActivity extends AppCompatActivity {
     private TextInputEditText textPrecoQuilo;
     //private Button botaoCalcular;
     private TextView textResultado;
-    private CheckBox checkCanal;
-    private CheckBox checkRetifica;
+    private RadioButton radioCanal;
+    private RadioButton radioRetifica;
     private RadioButton radioButtonNitrilica;
     private RadioButton radioButtonEpdm;
     private RadioButton radioButtonX300;
@@ -39,8 +39,8 @@ public class ValorActivity extends AppCompatActivity {
         textComprimentoBorracha = findViewById(R.id.textInputVlComprimentoBorracha);
         textPrecoQuilo = findViewById(R.id.textInputPrecoQuilo);
         textResultado = findViewById(R.id.textViewVlResultadoPreco);
-        checkCanal = findViewById(R.id.checkBoxCanais);
-        checkRetifica = findViewById(R.id.checkBoxRetifica);
+        radioCanal = findViewById(R.id.radioButtonCanais);
+        radioRetifica = findViewById(R.id.radioButtonRetifica);
         radioButtonNitrilica = findViewById(R.id.radioButtonVlNitrilica);
         radioButtonEpdm = findViewById(R.id.radioButtonVlPrecoEPDM);
         radioButtonX300 = findViewById(R.id.radioButtonVlPrecoX300);
@@ -111,14 +111,8 @@ public class ValorActivity extends AppCompatActivity {
         Double _comprimentoBorracha = comprimentoBorracha;
         int _valorBorracha = valorBorracha;
 
-        if(checkCanal.isChecked() && checkRetifica.isChecked()){
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Selecione apenas Canais ou Retifica!!!",
-                    Toast.LENGTH_LONG
-            ).show();
-        }else if (_diametroBorracha < 135) {
-            if (checkCanal.isChecked()) {
+        if (_diametroBorracha < 135) {
+            if (radioCanal.isChecked()) {
                 //adiciona 30% a mais no valor principal
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha) * _valorBorracha;
                 Double calculoTotal = ((calculo * 0.30) + calculo)/10;
@@ -143,7 +137,7 @@ public class ValorActivity extends AppCompatActivity {
         Double _comprimentoBorracha = comprimentoBorracha;
         int _valorBorracha = valorBorracha;
 
-        if (checkCanal.isChecked()) {
+        if (radioCanal.isChecked()) {
 
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha) * _valorBorracha;
             Double calculoTotal = ((calculo * 0.30) + calculo)/10;
@@ -163,7 +157,7 @@ public class ValorActivity extends AppCompatActivity {
         Double _diametroBorracha = diametroBorracha;
         Double _comprimentoBorracha = comprimentoBorracha;
 
-        if (checkCanal.isChecked()) {
+        if (radioCanal.isChecked()) {
             int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
             textResultado.setText(resultadoCalculo);
@@ -174,5 +168,7 @@ public class ValorActivity extends AppCompatActivity {
             textResultado.setText(resultadoCalculo);
         }
     }
+
+
 
 }
