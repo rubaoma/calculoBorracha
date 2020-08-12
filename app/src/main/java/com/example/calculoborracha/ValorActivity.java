@@ -67,11 +67,11 @@ public class ValorActivity extends AppCompatActivity {
 
             if (radioButtonNitrilica.isChecked()) {
 
-                calculoNitrilica(valorDiamFerro, valorDiamBorracha, valorCompBorracha, valorPrecoQuilo);
+                calculoPrecoNitrilica(valorDiamFerro, valorDiamBorracha, valorCompBorracha, valorPrecoQuilo);
             }
             if (radioButtonEpdm.isChecked()) {
 
-                calculoEPDM(valorDiamFerro, valorDiamBorracha, valorCompBorracha);
+                calculoPrecoEPDM(valorDiamFerro, valorDiamBorracha, valorCompBorracha, valorPrecoQuilo);
             }
 
             if (radioButtonX300.isChecked()) {
@@ -105,7 +105,7 @@ public class ValorActivity extends AppCompatActivity {
         return camposValidados;
     }
 
-    public void calculoNitrilica(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha, int valorBorracha) {
+    public void calculoPrecoNitrilica(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha, int valorBorracha) {
         Double _diametroFerro = diametroFerro;
         Double _diametroBorracha = diametroBorracha;
         Double _comprimentoBorracha = comprimentoBorracha;
@@ -127,19 +127,21 @@ public class ValorActivity extends AppCompatActivity {
             }
         } else {
             // Diametro da Borracha nitrilica acima de 135 o peso teórico praticamente se iguala ao de uma borracha EDPM
-            calculoEPDM(_diametroFerro, _diametroBorracha, _comprimentoBorracha);
+            calculoPrecoEPDM(_diametroFerro, _diametroBorracha, _comprimentoBorracha, _valorBorracha);
         }
     }
 
-    public void calculoEPDM(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha) {
+    public void calculoPrecoEPDM(Double diametroFerro, Double diametroBorracha, Double comprimentoBorracha, int valorBorracha) {
         Double _diametroFerro = diametroFerro;
         Double _diametroBorracha = diametroBorracha;
         Double _comprimentoBorracha = comprimentoBorracha;
+        int _valorBorracha = valorBorracha;
 
         if (checkCanal.isChecked()) {
 
-            int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
-            String resultadoCalculo = String.valueOf(calculo);
+            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha) * _valorBorracha;
+            Double calculoTotal = ((calculo * 0.30) + calculo)/10;
+            String resultadoCalculo = String.valueOf(calculoTotal);
             textResultado.setText(resultadoCalculo);
         } else {
 
