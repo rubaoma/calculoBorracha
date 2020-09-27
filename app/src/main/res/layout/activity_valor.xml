@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ValorActivity">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:gravity="center_horizontal"
-            android:text="CALCULO DE PREÇO"
+            android:text="@string/calculo_de_preco"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
                 android:id="@+id/textInputVlDiametroFerro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Diâmetro do Ferro:"
+                android:hint="@string/di_metro_do_ferro"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +61,7 @@
                 android:id="@+id/textInputVlDiametroBorracha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Diâmetro da Borracha:"
+                android:hint="@string/di_metro_da_borracha"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +80,7 @@
                 android:id="@+id/textInputVlComprimentoBorracha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Comprimento da borracha:"
+                android:hint="@string/comprimento_da_borracha"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +91,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:text="Selecione o tipo de Borracha:"
+            android:text="@string/selecione_o_tipo_de_borracha"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -113,19 +113,19 @@
                 android:id="@+id/radioButtonVlNitrilica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nitrílica" />
+                android:text="@string/nitr_lica" />
 
             <RadioButton
                 android:id="@+id/radioButtonVlPrecoEPDM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="EPDM, Silicone, Neoprene" />
+                android:text="@string/epdm_silicone_neoprene" />
 
             <RadioButton
                 android:id="@+id/radioButtonVlPrecoX300"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="x-300" />
+                android:text="@string/x_300" />
         </RadioGroup>
 
         <TextView
@@ -135,7 +135,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:text="Serviços Extras:"
+            android:text="@string/servi_os_extras"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -156,13 +156,13 @@
                 android:id="@+id/radioButtonCanais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Canais" />
+                android:text="@string/canais" />
 
             <RadioButton
                 android:id="@+id/radioButtonRetifica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Retifica" />
+                android:text="@string/retifica" />
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -180,7 +180,7 @@
                 android:id="@+id/textInputPrecoQuilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Preço do Quilo:"
+                android:hint="@string/pre_o_do_quilo"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -190,7 +190,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:text="Valor do revestimento:"
+            android:text="@string/valor_do_revestimento"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
@@ -202,7 +202,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:text="0,00"
+            android:text="@string/_0_00"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -217,7 +217,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:onClick="calcularPrecoBorracha"
-            android:text="Calcular"
+            android:text="@string/calcular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewVlResultadoPreco" />
@@ -230,7 +230,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:onClick="chamarTelaInicial"
-            android:text="Tela Inicial"
+            android:text="@string/tela_inicial"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonVlCalularPreco"
@@ -243,7 +243,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="24dp"
             android:onClick="limparCampos"
-            android:text=" Limpar campos"
+            android:text="@string/limpar_campos"
             app:layout_constraintBaseline_toBaselineOf="@+id/buttonVlTelaInicial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonVlTelaInicial" />

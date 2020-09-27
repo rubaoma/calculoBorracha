@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.calculoborracha.util.Valores;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class PesoActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class PesoActivity extends AppCompatActivity {
     private RadioButton radioButtonEpdm;
     private RadioButton radioButtonX300;
 
+    Valores valores = new Valores();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class PesoActivity extends AppCompatActivity {
         String diamBorracha = textDiametroBorracha.getText().toString();
         String compBorracha = textComprimentoBorracha.getText().toString();
         Boolean camposValidados = validarCampos(diamFerro, diamBorracha, compBorracha);
+
+
 
         if (camposValidados) {
             Double valorDiamFerro = Double.parseDouble(diamFerro);
@@ -108,12 +112,12 @@ public class PesoActivity extends AppCompatActivity {
 
                 int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
                 String resultadoCalculo = String.valueOf(calculo);
-                textResultado.setText(resultadoCalculo);
+                textResultado.setText(valores.pesoFormatado(resultadoCalculo));
             } else {
 
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
                 String resultadoCalculo = String.valueOf(calculo);
-                textResultado.setText(resultadoCalculo);
+                textResultado.setText(valores.pesoFormatado(resultadoCalculo));
             }
         } else {
             // Diametro da Borracha nitrilica acima de 135 o peso teórico praticamente se iguala ao de uma borracha EDPM
@@ -128,14 +132,14 @@ public class PesoActivity extends AppCompatActivity {
 
         if (checkCapa.isChecked()) {
 
-            int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
+            Double calculo = (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valores.pesoFormatado(resultadoCalculo));
         } else {
 
-            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
+            Double calculo =  ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valores.pesoFormatado(resultadoCalculo));
         }
     }
 
@@ -146,14 +150,14 @@ public class PesoActivity extends AppCompatActivity {
         Double _comprimentoBorracha = comprimentoBorracha;
 
         if (checkCapa.isChecked()) {
-            int calculo = (int) (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
+            Double calculo = (((((_diametroBorracha * _diametroBorracha) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valores.pesoFormatado(resultadoCalculo));
         } else {
 
-            int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
+            Double calculo =  ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valores.pesoFormatado(resultadoCalculo));
         }
     }
     public void limparCampos(View view){

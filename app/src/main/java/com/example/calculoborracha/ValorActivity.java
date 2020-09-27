@@ -11,7 +11,10 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.calculoborracha.util.Valores;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.DecimalFormat;
 
 public class ValorActivity extends AppCompatActivity {
 
@@ -26,6 +29,8 @@ public class ValorActivity extends AppCompatActivity {
     private RadioButton radioButtonNitrilica;
     private RadioButton radioButtonEpdm;
     private RadioButton radioButtonX300;
+
+    Valores valoresFormatado = new Valores();
 
 
     @Override
@@ -89,7 +94,7 @@ public class ValorActivity extends AppCompatActivity {
     }
 
     public Boolean validarCampos(String pDiamferro, String pDiamBorracha, String pCompBorracha, String pValorQuilo) {
-        Boolean camposValidados = true;
+        boolean camposValidados = true;
 
         if (pDiamferro == null || pDiamferro.equals("")) {
             camposValidados = false;
@@ -118,6 +123,7 @@ public class ValorActivity extends AppCompatActivity {
                 Double calculoTotal = ((calculo * 0.30) + calculo)/10;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
+//                textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
 
             }else if (radioRetifica.isChecked()){
                 //retifica equivale a 30% do valor total de um revestimento
@@ -125,12 +131,14 @@ public class ValorActivity extends AppCompatActivity {
                 Double calculoTotal = (calculo * 0.30)/10;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
+//                textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
             }else {
 
                 int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha);
                 int calculoTotal = (int) (calculo * _valorBorracha)/10;
                 String resultadoCalculo = String.valueOf(calculoTotal);
                 textResultado.setText(resultadoCalculo);
+//                textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
             }
         } else {
             // Diametro da Borracha nitrilica acima de 135 o peso teórico praticamente se iguala ao de uma borracha EDPM
@@ -150,19 +158,20 @@ public class ValorActivity extends AppCompatActivity {
             Double calculoTotal = ((calculo * 0.30) + calculo)/10;
             String resultadoCalculo = String.valueOf(calculoTotal);
             textResultado.setText(resultadoCalculo);
+//            textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
 
         }else if (radioRetifica.isChecked()) {
             //retifica equivale a 30% do valor total de um revestimento
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha) * _valorBorracha;
             Double calculoTotal = (calculo * 0.30) / 10;
             String resultadoCalculo = String.valueOf(calculoTotal);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
 
         } else {
 
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
         }
     }
 
@@ -178,20 +187,20 @@ public class ValorActivity extends AppCompatActivity {
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha) * _valorBorracha;
             Double calculoTotal = ((calculo * 0.30) + calculo)/10;
             String resultadoCalculo = String.valueOf(calculoTotal);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
 
         }else if (radioRetifica.isChecked()) {
             //retifica equivale a 30% do valor total de um revestimento
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha) * _valorBorracha;
             Double calculoTotal = (calculo * 0.30) / 10;
             String resultadoCalculo = String.valueOf(calculoTotal);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
 
         } else {
 
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha);
             String resultadoCalculo = String.valueOf(calculo);
-            textResultado.setText(resultadoCalculo);
+            textResultado.setText(valoresFormatado.valorFormatado(resultadoCalculo));
         }
     }
 

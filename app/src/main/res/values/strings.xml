@@ -3,4 +3,21 @@
     <string name="calcular_peso">calcular peso</string>
     <string name="calcular_valor">Calcular valor</string>
     <string name="todo">TODO</string>
+    <string name="calculo_de_preco">CALCULO DE PREÇO</string>
+    <string name="epdm_silicone_neoprene">EPDM, Silicone, Neoprene</string>
+    <string name="di_metro_do_ferro">Diâmetro do Ferro:</string>
+    <string name="nitr_lica">Nitrílica</string>
+    <string name="selecione_o_tipo_de_borracha">Selecione o tipo de Borracha:</string>
+    <string name="comprimento_da_borracha">Comprimento da borracha:</string>
+    <string name="di_metro_da_borracha">Diâmetro da Borracha:</string>
+    <string name="x_300">x-300</string>
+    <string name="servi_os_extras">Serviços Extras:</string>
+    <string name="canais">Canais</string>
+    <string name="retifica">Retifica</string>
+    <string name="pre_o_do_quilo">Preço do Quilo:</string>
+    <string name="valor_do_revestimento">Valor do revestimento:</string>
+    <string name="_0_00">0,00</string>
+    <string name="calcular">Calcular</string>
+    <string name="tela_inicial">Tela Inicial</string>
+    <string name="limpar_campos">Limpar campos</string>
 </resources>
