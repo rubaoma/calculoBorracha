@@ -1,6 +1,7 @@
 package com.example.calculoborracha.util;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class Valores {
 
@@ -12,9 +13,22 @@ public class Valores {
     };
 
 
-    public String valorFormatado( String valor ) {
+    public String valorFormatado(double valor ) {
 
-        DecimalFormat padraoMonetario = new DecimalFormat("###,###,##" );
+        DecimalFormat padraoMonetario = new DecimalFormat("" );
+        return padraoMonetario.format(valor).replace(",", ".");
+//        NumberFormat padraoMonetario = NumberFormat.getIntegerInstance();
+//        return padraoMonetario.format(valor);
+    }
+
+    public String valorFormatado2(double valor ) {
+
+//        DecimalFormat padraoMonetario = new DecimalFormat("" );
+//        return padraoMonetario.format(valor).replace(",", ".");
+        NumberFormat padraoMonetario = NumberFormat.getIntegerInstance();
         return padraoMonetario.format(valor);
+
+
     }
 }
+
