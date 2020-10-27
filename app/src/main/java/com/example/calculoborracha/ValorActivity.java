@@ -124,6 +124,10 @@ public class ValorActivity extends AppCompatActivity {
                 textResultado.setText("R$ "+calcFormat+",00");
 
             } else if (radioRetifica.isChecked()) {
+                /**
+                 * buscar uma solução para o valor quebrado
+                 * */
+
                 //retifica equivale a 30% do valor total de um revestimento
                 int calculo = (int)((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.012) * _comprimentoBorracha) * _valorBorracha;
                 double calculoTotal = (calculo * 0.30) / 1000;
@@ -157,6 +161,9 @@ public class ValorActivity extends AppCompatActivity {
             textResultado.setText("R$ "+calcFormat+",00");
 
         } else if (radioRetifica.isChecked()) {
+            /**
+             * buscar uma solução para o valor quebrado
+             * */
             //retifica equivale a 30% do valor total de um revestimento
             Double calculo = ((((((_diametroBorracha + 15) * (_diametroBorracha + 15))- (_diametroFerro * _diametroFerro)) * 0.0785) * 0.015) * _comprimentoBorracha) * _valorBorracha;
             double calculoTotal = (calculo * 0.30) / 10;
@@ -189,6 +196,9 @@ public class ValorActivity extends AppCompatActivity {
             textResultado.setText("R$ "+calcFormat+",00");
 
         } else if (radioRetifica.isChecked()) {
+            /**
+             * buscar uma solução para o valor quebrado
+             * */
             //retifica equivale a 30% do valor total de um revestimento
             int calculo = (int) ((((((_diametroBorracha + 15) * (_diametroBorracha + 15)) - (_diametroFerro * _diametroFerro)) * 0.0785) * 0.018) * _comprimentoBorracha) * _valorBorracha;
             Double calculoTotal = (calculo * 0.30) / 10;
