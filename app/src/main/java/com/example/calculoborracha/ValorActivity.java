@@ -1,8 +1,10 @@
 package com.example.calculoborracha;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
@@ -203,6 +205,7 @@ public class ValorActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void limparCampos(View view) {
         textDiametroFerro.setText("");
         textDiametroBorracha.setText("");
@@ -214,6 +217,7 @@ public class ValorActivity extends AppCompatActivity {
         radioButtonNitrilica.setChecked(false);
         radioButtonEpdm.setChecked(false);
         radioButtonX300.setChecked(false);
+
 
 
     }

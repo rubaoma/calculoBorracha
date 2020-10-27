@@ -1,8 +1,10 @@
 package com.example.calculoborracha;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -168,6 +170,7 @@ public class PesoActivity extends AppCompatActivity {
             textResultado.setText(resultadoCalculo);
         }
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void limparCampos(View view){
         textDiametroFerro.setText("");
         textDiametroBorracha.setText("");
@@ -177,6 +180,7 @@ public class PesoActivity extends AppCompatActivity {
         radioButtonNitrilica.setChecked(false);
         radioButtonEpdm.setChecked(false);
         radioButtonX300.setChecked(false);
+        textDiametroFerro.getFocusable();
 
 
     }

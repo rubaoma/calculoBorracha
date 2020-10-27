@@ -20,4 +20,6 @@
     <string name="calcular">Calcular</string>
     <string name="tela_inicial">Tela Inicial</string>
     <string name="limpar_campos">Limpar campos</string>
+    <string name="revestimento_de_cilindros_em_borracha">Revestimento de cilindros em borracha</string>
+    <string name="by_rubdev">Create by RUB-DEV</string>
 </resources>

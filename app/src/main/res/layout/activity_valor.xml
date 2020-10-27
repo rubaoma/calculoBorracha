@@ -162,7 +162,8 @@
                 android:id="@+id/radioButtonRetifica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/retifica" />
+                android:text="@string/retifica"
+                android:visibility="gone"/>
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
